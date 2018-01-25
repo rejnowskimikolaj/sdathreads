@@ -3,13 +3,13 @@ package factoriallive;
 public class Request implements Runnable {
 
     private static final long SLEEP_MS = 200;
-    private Calculator calculator;
+    private OnFactioralCountedListener listener;
 
     int number;
 
-    public Request(int number,Calculator calculator) {
+    public Request(int number,OnFactioralCountedListener listener) {
         this.number = number;
-        this.calculator = calculator;
+        this.listener = listener;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Request implements Runnable {
         }
 
         System.out.println("factorial of: " + number + " is: " + result);
-        calculator.onFactorialCounted(result,number);
+        listener.onFactorialCounted(result,number);
 
     }
 

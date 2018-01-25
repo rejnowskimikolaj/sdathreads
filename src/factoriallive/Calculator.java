@@ -1,5 +1,6 @@
 package factoriallive;
 
+import java.awt.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Calculator {
+public class Calculator implements OnFactioralCountedListener {
 
 
     private ExecutorService service = Executors.newFixedThreadPool(3);
@@ -15,7 +16,8 @@ public class Calculator {
 
     public void countFactorial(int number){
 
-        Request request = new Request(number,this);
+        Request request = new Request(5,this);
+
         service.execute(request);
 
 
